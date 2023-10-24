@@ -1,16 +1,14 @@
 import { SoftShadows } from "@react-three/drei";
-import { extend, useThree } from "@react-three/fiber";
+import { extend } from "@react-three/fiber";
 import { Physics, vec3 } from "@react-three/rapier";
 import { TextGeometry } from "three-stdlib";
 import Ground from "./Objects/Ground";
 import Player from "./Objects/Player";
 import Text from "./Objects/Text";
+import names from "./data/names";
 
 export default function AppScene() {
   extend({ TextGeometry });
-  const camera = useThree((state) => state.camera);
-
-  const texts = ["Sarim", "Effendi", "Bilal", "Mujeeb"];
 
   return (
     <Physics gravity={[0, -18, 0]} debug={false}>
@@ -19,7 +17,7 @@ export default function AppScene() {
         text={"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"}
         position={vec3({ x: -20, y: 1, z: -20 })}
       /> */}
-      {texts.map((text, i) => (
+      {names.map((text, i) => (
         <Text
           key={i}
           text={text}
