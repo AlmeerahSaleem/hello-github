@@ -12,7 +12,10 @@ import { letterMultiplier } from "../utils/texthelpers";
  */
 export default function Text({ text, position, props }) {
   extend({ TextGeometry });
-  const font = useLoader(FontLoader, "/assets/fonts/Roboto_Bold.json");
+  const font = useLoader(
+    FontLoader,
+    `${process.env.PUBLIC_URL}/assets/fonts/Roboto_Bold.json`
+  );
   const spacing = 11;
 
   const meshes = text.split("").map(
