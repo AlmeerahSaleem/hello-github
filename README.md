@@ -22,7 +22,7 @@ git clone <your-fork-url>
 
 ### 3. Navigate to the Project
 
-Move to the project's directory using the `cd` command:
+Move to the project's directory using the `cd` command!  :
 
 ```bash
 cd hello-github
