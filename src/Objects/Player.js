@@ -1,6 +1,6 @@
 // import { useKeyboardControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { RigidBody, vec3 } from "@react-three/rapier";
+import { RapierRigidBody, RigidBody, vec3 } from "@react-three/rapier";
 import React, { useRef } from "react";
 import { Vector3 } from "three";
 import { useKeyboardControls } from "../hooks/useKeyboardControls";
@@ -15,7 +15,8 @@ export default function Player() {
   /**
    * @property {RapierRigidBody} rigidBody
    */
-  const rigidBody = useRef();
+
+  const rigidBody = useRef(new RapierRigidBody());
 
   useFrame(() => {
     if (rigidBody.current) {
@@ -44,13 +45,14 @@ export default function Player() {
       // console.log(direction, direction.x, direction.y, direction.z);
 
       rigidBody.current.applyImpulse(direction, true);
+      rigidBody.current.addTorque(new Vector3(2.5,3,1.5), true);
       rigidBody.current.setLinearDamping(0.9);
     }
   });
 
   return (
     <>
-      <RigidBody lockRotations position={[0, 0, 0]} ref={rigidBody}>
+      <RigidBody  position={[0, 0, 0]} ref={rigidBody}>
         <mesh>
           <boxGeometry args={[6, 5, 6]} />
           <meshStandardMaterial color={"gold"} />
