@@ -2,6 +2,6 @@ const names = [
 	"Bilal Pervez",
 	"Mujeeb ur Rehman",
 	"Sarim Effendi",
-	"add your name here"
+	"Ali Asar"
 ];
 export default names;
