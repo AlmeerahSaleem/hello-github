@@ -6,7 +6,7 @@ const names = [
 	"Mustan Ali",
 	"Mustafa Haider Ali Sabuwala",
 	"Arsalan Ayaz",
-	"Ali Asar"
+	"Ali Asar",
 	"Rohail Rathore"
 ];
 export default names;
